@@ -8,7 +8,6 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class ExamController {
@@ -20,11 +19,11 @@ public class ExamController {
 
   @GetMapping("/json/exam")
   @ResponseBody
-  public Map exam2() {
-    List list = new ArrayList<>();
-    Map map1 = new HashMap<>();
-    Map map2 = new HashMap<>();
-    Map map3 = new HashMap<>();
+  public Map<String, Object> exam2() {
+    List<Map<String, String>> list = new ArrayList<>();
+    Map<String, String> map1 = new HashMap<>();
+    Map<String, String> map2 = new HashMap<>();
+    Map<String, Object> map3 = new HashMap<>();
     
     map1.put("name", "가");
     map1.put("userId", "A");

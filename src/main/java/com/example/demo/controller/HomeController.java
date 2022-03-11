@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class HomeController {
 
-  @RequestMapping("/")
+  @RequestMapping("/home")
   public String home() {
 
     return "home"; // 차이점 .jsp(X)  -> thymeleaf 씀

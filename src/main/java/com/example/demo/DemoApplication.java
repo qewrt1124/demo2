@@ -11,26 +11,27 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
-		
-		Game game = (Game) context.getBean("game");
-		game.play();
-		
-		Movie movie = (Movie) context.getBean("movie");
-		movie.play();
-		
-		Music music = (Music) context.getBean("music");
-		music.play();
+		SpringApplication.run(DemoApplication.class, args);
 
-		ImageUtill util = (ImageUtill) context.getBean("image");
-		try {
-			util.save("http://ggoreb.com/images/luffy.jpg");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}	
+		// ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class); // BeanConfig에 있는거 사용
+		
+		// Game game = (Game) context.getBean("game");
+		// game.play();
+		
+		// Movie movie = (Movie) context.getBean("movie");
+		// movie.play();
+		
+		// Music music = (Music) context.getBean("music");
+		// music.play();
 
-		((AnnotationConfigApplicationContext) context).close();
+		// ImageUtill util = (ImageUtill) context.getBean("image");
+		// try {
+		// 	util.save("http://ggoreb.com/images/luffy.jpg");
+		// } catch (IOException e) {
+		// 	e.printStackTrace();
+		// }	
+
+		// ((AnnotationConfigApplicationContext) context).close();
 
 	}
-
 }

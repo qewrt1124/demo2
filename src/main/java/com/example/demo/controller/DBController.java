@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.demo.dao.HolidayParkingDAO;
+import com.example.demo.dao.SunbyulDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,6 +22,9 @@ public class DBController {
 
   @Autowired
   private HolidayParkingDAO hDao;
+
+  @Autowired
+  private SunbyulDAO sDao;
   // 1. 클래스 영역에 명령문(코드) 작성 X
   // List list = null;
   // list.add(1);
@@ -55,11 +59,22 @@ public class DBController {
   
   @GetMapping("/jdbc/parking")
   public List<Map<String, Object>> parking(
-    @RequestParam(value = "page", defaultValue = "0") int page) {
+    @RequestParam(value = "page", defaultValue = "1") int page) {
 
-    return hDao.select(page);
+    int startRow = page * 10 - 10;
+
+    return hDao.select(startRow);
     // snake_case = kamel_case
   }
+
+  @GetMapping("/jdbc/sunbyul")
+  public List<Map<String, Object>> sunbyul(
+    @RequestParam(value = "page", defaultValue = "1") int page) {
+
+    int startRow = page * 10 - 10;  
+    
+    return sDao.Select(startRow);
+    }
 }
 
 @Data

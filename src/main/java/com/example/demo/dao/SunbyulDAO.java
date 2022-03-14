@@ -8,15 +8,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class HolidayParkingDAO {
+public class SunbyulDAO {
   
   @Autowired
   private JdbcTemplate jt;
 
-  public List<Map<String, Object>> select(int page) {
-    
-    return jt.queryForList("SELECT * FROM holiday_parking WHERE gu='금천구' LIMIT ?, 10", page);
+  public List<Map<String, Object>> Select(int page) {
+
+    return jt.queryForList("SELECT * FROM sunbyul LIMIT ?, 10", page);
   }
-
-
 }

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,8 +24,13 @@ class DemoMapperTests {
 		System.out.println(result);
 	}
 
+	@Test
 	public void insert() {
+		Map<String, Object> map = new HashMap<>();
 
+		map.put("seq", 4);
+		map.put("user", "DDD");
 
+		demoMapper.insert(map);
 	}
 }

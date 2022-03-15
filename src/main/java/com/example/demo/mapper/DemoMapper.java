@@ -10,6 +10,6 @@ public interface DemoMapper {
   
   public List<Map<String, Object>> select();
 
-  public void insert();
+  public Integer insert(Map<String, Object> map);
 }
 

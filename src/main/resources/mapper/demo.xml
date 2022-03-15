@@ -8,7 +8,7 @@
     select * from demo
   </select>
 
-  <insert id="insert" parameterType="java.util.List">
-    INSERT INTO demo VALUES (, 'DDD')
+  <insert id="insert" parameterType="java.util.Map">
+    INSERT INTO demo (seq, user) VALUES (#{seq}, #{user})
   </insert>
 </mapper>

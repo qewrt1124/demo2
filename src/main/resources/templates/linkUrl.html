@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <th:block th:each="pageNumber : ${#numbers.sequence(startPage, endPage)}">
+        <a th:href="@{/linkUrl(page=${pageNumber})}" th:text="${pageNumber}"></a>
+    </th:block>
+</body>
+</html>

@@ -2,13 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.demo.mapper.DemoMapper">
+<mapper namespace="com.example.demo.mapper.SunbyulMapper">
 
   <select id="select" resultType="java.util.Map">
-    select * from demo
+    select * from sunbyul
   </select>
-
-  <insert id="insert" parameterType="map">
-    INSERT INTO demo (seq, user) VALUES (#{seq}, #{user})
-  </insert>
 </mapper>

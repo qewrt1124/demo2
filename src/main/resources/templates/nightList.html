@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>순번</td>
+        <td>약국명</td>
+        <td>연락처</td>
+        <td>도로명주소</td>
+        <td>지번주소</td>
+        <td>월</td>
+        <td>화</td>
+        <td>수</td>
+        <td>목</td>
+        <td>금</td>
+        <td>토</td>
+        <td>일</td>
+        <td>공휴일</td>
+    </tr>
+    <tr th:each="night : ${nightList}">
+        <td th:text="${night.id}"></td>
+        <td th:text="${night.name}"></td>
+        <td th:text="${night.tel}"></td>
+        <td th:text="${night.roadAddress}"></td>
+        <td th:text="${night.jibunAddress}"></td>
+        <td th:text="${night.mon}"></td>
+        <td th:text="${night.tue}"></td>
+        <td th:text="${night.wed}"></td>
+        <td th:text="${night.thu}"></td>
+        <td th:text="${night.fri}"></td>
+        <td th:text="${night.sat}"></td>
+        <td th:text="${night.sun}"></td>
+        <td th:text="${night.pubDay}"></td>
+    </tr>
+</table>
+<hr>
+<th:block th:each="pageNumber : ${#numbers.sequence(1, 10)}">
+    <span th:text="${pageNumber}"></span>
+</th:block>
+</body>
+</html>

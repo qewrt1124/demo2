@@ -7,4 +7,6 @@ public class Any {
 
   String name;
   int age;
+
+  String search;
 }

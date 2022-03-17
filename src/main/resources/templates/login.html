@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        ID : <input type="text" name="userId"><br>
+        PW : <input type="password" name="userPw"><br>
+        <input type="submit" value="로그인">
+    </form>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const btn = document.querySelector("[type=submit]");
+    btn.addEventListener("click", ( event ) => {
+        event.preventDefault();
+        const formData = new FormData();
+
+        const userId = document.querySelector("[name=userId]").value;
+        formData.append("userId", userId);
+        const userPw = document.querySelector("[name=userPw]").value;
+        formData.append("userPw", userPw);
+
+        const res = axios({
+            url: "/login",
+            method: "post",
+            data: formData
+        });
+        // 결과 제대로 나오지 않음 (비동기라서.. 마치 쓰레드)
+        // console.log(res);
+        res.then((data) => {
+            console.log(data.data);
+            alert(data.data.result);
+            if(data.data.code == 200) {
+                location = '/main';
+            } else {
+                location.reload();
+            }
+            // alert(data.data);
+            // if(data.data == '로그인 성공') {
+            //     alert("로그인 성공");
+            // } else {
+            //     alert("로그인 실패");
+            // }
+        });
+    });
+
+</script>
+</body>
+</html>

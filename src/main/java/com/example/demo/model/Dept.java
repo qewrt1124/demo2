@@ -20,6 +20,7 @@ public class Dept {
     private String dname;
     private String loc;
 
+    // 양방향
     @OneToMany(mappedBy = "dept", fetch = FetchType.EAGER)
     List<Emp> emps = new ArrayList<>();
 }

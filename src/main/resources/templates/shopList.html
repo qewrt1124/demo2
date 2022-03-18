@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>순번</td>
+        <td>고객아이디</td>
+        <td>고객명</td>
+        <td>고객등급</td>
+        <td>제품코드</td>
+        <td>주문수량</td>
+        <td>주문주소</td>
+        <td>주문일자</td>
+    </tr>
+    <tr th:each="list : ${shopList}">
+        <td th:text="${list.id}"></td>
+        <td th:text="${list.customer.id}"></td>
+        <td th:text="${list.customer.name}"></td>
+        <td th:text="${list.customer.grade}"></td>
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.count}"></td>
+        <td th:text="${list.dest}"></td>
+        <td th:text="${list.ordDate}"></td>
+    </tr>
+</table>
+<hr>
+<br>
+<span th:each="page : ${#numbers.sequence(1, 10)}">
+    <a th:href="@{/order/} + ${page}" th:text="${page}"></a>
+</span>
+
+</body>
+</html>

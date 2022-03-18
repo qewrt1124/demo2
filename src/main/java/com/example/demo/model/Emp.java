@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.ManyToOne;
 
 @Data
 @Entity
+@ToString(exclude = "dept")
 public class Emp {
 
     @Id
@@ -22,7 +25,9 @@ public class Emp {
     private Integer sal;
     private Integer comm;
 
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "deptno")
+    @JoinColumn(name = "deptno", referencedColumnName = "deptno")
+//    @ToString.Exclude
     private Dept dept;
 }
